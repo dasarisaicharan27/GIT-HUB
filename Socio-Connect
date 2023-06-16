@@ -1,1 +1,525 @@
+                                          #about.html
+<!DOCTYPE html>
+<html lang="en-us">
 
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" sizes="32x32" href="/static/assets/images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/static/assets/styles/signup.css">
+    <link rel="stylesheet" href="/static/assets/styles/styles.css">
+
+    <title>About Us</title>
+</head>
+
+<body>
+    <script src="static/assets/scripts/header.js"></script>
+
+    <div class="motto-container">
+        <div class="motto">
+            <p>Our group's focus for the SocioConnect project was to create a website that would be relevant and useful
+                for end users. We aimed to achieve this by ensuring engaging and informative content, a professional and
+                consistent design, intuitive navigation, and compatibility across screen sizes. As a group, our focus
+                was to design and develop an interactive and user-friendly website, with each member contributing their
+                skills to ensure functionality, visual appeal, and meeting the needs of SocioConnect.</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="feature">
+            <h2>Divyanshi Singh</h2>
+            <p>
+                Divyanshi is a competent professional with over 5 years of experience in data analytics, database
+                solutions, and
+                BI reporting. She is a keen learner and is currently pursuing her M.S. in Business Analytics and
+                Information Systems at USF. She is proficient in programming languages such as SQL and Python. In this
+                particular assignment, she worked on the
+                design and development the landing page, as well as developing signup/donations page using HTML, CSS, and JavaScript.
+            </p>
+        </div>
+        <div class="feature">
+            <div class="landing-img-container">
+                <img class="landing-img" src="/static/assets/images/headshots/d.png" alt="devices" style="border-radius: 50%;">
+            </div>
+        </div>
+        <div class="feature">
+            <div class="landing-img-container"><img class="landing-img" src="/static/assets/images/headshots/j.png"
+                    alt="devices" style="border-radius: 50%;">
+            </div>
+        </div>
+
+        <div class="feature">
+            <h2>Joe Arul Susai Prakash</h2>
+            <p>
+                Joe is pursuing his masters full-time in the M.S. in Business Analytics and Information Systems program
+                at USF. Prior to this he worked as a Software Engineer where his primarily responsibilities included
+                designing and building the data infrastructure at
+                Rocket Software. In this particular assignment, he worked on building the product features page and designing figma mockups, designing signup/donate page and associated data elements, product concepts
+
+            </p>
+        </div>
+        <div class="feature">
+            <h2>Sai Charan Dasari</h2>
+
+            <p>
+                Sai Charan is a technology enthusiast with 2 years of professional experience in the cloud. He is now
+                pursuing his M.S. in Business Analytics and Information Systems
+                at USF . Aided wit his familiarity of Python, R-studio, and databases, Sai Charan loves creating
+                new things and experimenting. He also enjoys traveling, learning about different cultures, and meeting
+                new people. In this particular assignment their contribution was doing a Visualization like Charts layout 
+                using it in the View statistics section and testing the website on different devices.
+            </p>
+        </div>
+        <div class="feature">
+            <div class="landing-img-container"><img class="landing-img" src="/static/assets/images/headshots/c.png"
+                    alt="devices" style="border-radius: 50%;"></div>
+        </div>
+
+        <div class="feature">
+            <div class="landing-img-container"><img class="landing-img" src="/static/assets/images/headshots/k.png"
+                    alt="devices" style="border-radius: 50%;"></div>
+        </div>
+
+        <div class="order-md-1 feature">
+            <h2>Kevin Hitt</h2>
+            <p> Kevin recently earned his Bachelor's degree from the University of South Florida
+                and is now pursuing his
+                Master's degree in Business Analytics and Information Systems. His love of technology inspired him to
+                pursue SocioConnect at a young
+                age. Kevin is passionate about bringing people together and creating engaging experiences for users. He
+                enjoys hiking, trying out
+                new recipes, and spending time with his family. In this particular assignment, he aided in project management, 
+                converting site to Flask environment, configuring SQLite to dynamically visualize data with Chart.js. 
+            </p>
+        </div>
+    </div>
+    <script src="/static/assets/scripts/footer.js"></script>
+</body>
+</html>
+
+                                                #features.html
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/x-icon" sizes="32x32" href="/static/assets/images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/static/assets/styles/signup.css">
+    <link rel="stylesheet" href="/static/assets/styles/styles.css">
+
+    <title>Product Features</title>
+</head>
+
+<body>
+    <script src="static/assets/scripts/header.js"></script>
+
+
+    <div class="flex-container">
+        <div class="image">
+            <img class="mockup" src="/static/assets/images/mockups/interestspage.png" alt="Mockup placeholder">
+        </div>
+        <div class="explanation">
+            <h2>Tailored!</h2>
+            <p>Customize the app to include only content you're interested in. No more mindlessly scrolling through content
+                which is irrelevant to your goals.</p>
+        </div>
+    </div>
+
+    <div class="flex-container">
+        <div class="image">
+            <img class="mockup" src="/static/assets/images/mockups/profilepage.png" alt="Mockup placeholder">
+        </div>
+        <div class="explanation">
+            <h2>For the 'YOU' in Universe</h2>
+            <p>Capture the best version of yourself, share the best moments in your life. SocioConnect is designed to
+                help you share your ideas in the most flexible way possible.</p>
+        </div>
+    </div>
+
+    <div class="flex-container">
+        <div class="image">
+            <img class="mockup" src="/static/assets/images/mockups/profilesearch.png" alt="Mockup placeholder">
+        </div>
+        <div class="explanation">
+            <h2>Meet your future collaborator</h2>
+            <p>SocioConnect brings people of similar interests together and provides them with the tools required to
+                plan your next groundbreaking invention, your next Saturday road trip, or even better - your next Boba
+                Tea party!!!</p>
+        </div>
+    </div>
+
+    <div class="flex-container">
+        <div class="image">
+            <img class="mockup" src="/static/assets/images/mockups/explorepage.png" alt="Mockup placeholder">
+        </div>
+        <div class="explanation">
+            <h2>Share!</h2>
+            <p>YouTube for videos, Twitter for ideas, Instagram for pictures, TikTok for reels. Everything at once?
+                SocioConnect!</p>
+        </div>
+    </div>
+
+    <div class="flex-container">
+        <div class="image">
+            <img class="mockup" src="/static/assets/images/mockups/chatpage.png" alt="Mockup placeholder">
+        </div>
+        <div class="explanation">
+            <h2>Secure.</h2>
+            <p>These days we find so many apps that falsely claim to keep our information safe, and the very next moment
+                we find ads spamming us to buy the item we were talking about last week. We at SocioConnect believe that every
+                piece of information the user wants to be private, MUST be kept private. We use state of the art technology to secure
+                every single point of information exchange - knowing that what can be compromised, will be compromised!
+            </p>
+        </div>
+    </div>
+
+    <div class="flex-container">
+        <div class="image">
+            <img class="mockup" src="/static/assets/images/mockups/applanding.png" alt="Mockup placeholder">
+        </div>
+        <div class="explanation">
+            <h2>Safe on the eyes.. and the mind.</h2>
+            <p>Dark mode, Focus mode, Bedtime mode, Timer controls - you name it. We're the good guys :)</p>
+        </div>
+    </div>
+    <div class="flex-container">
+        <div class="cta"><a href="signup"><button class="cta-btn">Sign Up!</button></a></div>
+    </div>
+    <script src="static/assets/scripts/footer.js"></script>
+</body>
+</html>
+
+                                          #index.html
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/x-icon" sizes="32x32" href="/static/assets/images/favicon.ico">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/assets/styles/signup.css">
+    <link rel="stylesheet" href="/static/assets/styles/styles.css">
+
+    <title>SocioConnect Home</title>
+</head>
+
+<body>
+    <script src="/static/assets/scripts/header.js"></script>
+
+
+    <div class="row">
+        <div class="feature">
+            <h2>Bridging Distances, Bringing Loved Ones Closer,<br> Strengthening Bonds </h2>
+            <p>SocioConnect is a social media network created by students, for students. Our goal is to
+                bring the
+                USF community closer together,
+                providing a platform for students to connect with their peers and engage with campus life in new and
+                exciting
+                ways. From organizing study
+                groups to sharing photos from campus events, SocioConnect is the perfect place to stay connected and
+                make the
+                most of your time at USF.
+            </p>
+        </div>
+        <div class="feature">
+            <div class="landing-img-container"><img class="landing-img" src="/static/assets/images/devices.png" alt="devices">
+            </div>
+        </div>
+        <div class="feature">
+            <div class="landing-img-container"><img class="landing-img" src="/static/assets/images/easy.png" alt="devices">
+            </div>
+        </div>
+
+        <div class="feature">
+            <h2>Easy-to-use</h2>
+            <p>Our unique platform aggregates all your feeds, including posts, stories, videos, and more, into one
+                convenient,
+                easy-to-use feed, so you don't miss a beat. Whether you want to stay up-to-date with your friends'
+                latest posts,
+                or catch up on the latest news and trends, SocioConnect has got you covered.</p>
+        </div>
+        <div class="feature">
+            <h2>Privacy matters</h2>
+            <p>We understand that your privacy is important, which is why we take it seriously. SocioConnect's advanced
+                algorithms
+                ensure that your personal information is secure and protected. We also give you full control over your
+                data and
+                let
+                you choose who can see your posts and content.</p>
+        </div>
+        <div class="feature">
+            <div class="landing-img-container"><img class="landing-img" src="/static/assets/images/secure.png" alt="devices">
+            </div>
+        </div>
+
+        <div class="feature">
+            <div class="landing-img-container"><img class="landing-img" src="/static/assets/images/inclusive.png" alt="devices">
+            </div>
+        </div>
+
+        <div class="order-md-1 feature">
+            <h2>Something for everyone</h2>
+            <p>Join the SocioConnect community and connect with like-minded people from all over the world. From sharing
+                your
+                interests to making new connections, SocioConnect has something for everyone.</p>
+        </div>
+    </div>
+    <div class="cta"><a href="features"><button class="learn-more-btn">Learn More</button></a></div>
+    <div class="cta"><a href="signup"><button class="cta-btn">Sign Up!</button></a></div>
+    <div class="cta"><button id="loadChart" class="learn-more-btn" style="margin-bottom: 2.5em;">Explore our success: View our signup chart</button></div>
+    <div id="row-count"></div>
+    <div id="chartContainer" class="chart-box"></div>
+    
+    <script src="/static/assets/scripts/chart_insert.js"></script>
+    <script src="/static/assets/scripts/footer.js"></script>
+</body>
+</html>
+                                        #signup.html
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Signup Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" sizes="32x32" href="/static/assets/images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/static/assets/styles/signup.css">
+    <link rel="stylesheet" type="text/css" href="/static/assets/styles/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <!--Bootstrap script before body tag 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    make BOOTSTRAP + non-BOOTSTRAP versions -->
+
+</head>
+
+<body>
+    <script src="/static/assets/scripts/header.js"></script>
+    <div class="container">
+        <div class="container-signup">
+            <div class="signup-form-box">
+                <div class="signup-form">
+                    <h2>Sign Up</h2>
+                    <form id="signup-form">
+                        <label for="first-name">First Name:</label>
+                        <input type="text" id="first-name" name="first-name" required>
+                        <label for="last-name">Last Name:</label>
+                        <input type="text" id="last-name" name="last-name" required>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                        <div id="email-error"></div>
+                        <button type="submit">Sign Up</button>
+                    </form>
+                    <div id="signup-success-message"></div>
+                </div>
+            </div>
+            <div class="donation-form-box">
+                <div class="donation-form">
+                    <h2>Donate to our product!</h2>
+                    <form id="donation-form">
+                        <label for="first-name">First Name:</label>
+                        <input type="text" id="first-name-payment" name="first-name" required>
+                        <label for="last-name">Last Name:</label>
+                        <input type="text" id="last-name-payment" name="last-name" required>
+                        <label for="donation-email">Email:</label>
+                        <input type="email" id="donation-email" name="donation-email" required>
+
+                        <div class="amount-buttons">
+                            <div class="amount-options">
+                                <button type="button" class="amount-btn" data-amount="25">$25</button>
+                                <button type="button" class="amount-btn" data-amount="50">$50</button>
+                                <button type="button" class="amount-btn" data-amount="100">$100</button>
+                                <button type="button" class="amount-btn" id="custom-amount-btn"
+                                    data-amount="custom">Custom
+                                    Amount</button>
+                            </div>
+                            <div class="form-group" id="form-group-id">
+                                <label for="custom-amount-input">Custom Amount</label>
+                                <input type="number" id="custom-amount-input" name="amount" class="form-control" min="1"
+                                    step="1" placeholder="Enter custom amount">
+                            </div>
+                        </div>
+                        <label for="payment-method">Payment Method:</label>
+                        <select id="payment-method" name="payment-method">
+                            <option value="Credit Card">Credit Card</option>
+                            <option value="PayPal">PayPal</option>
+                        </select>
+
+                        <!-- Add a hidden input field to store the selected amount option -->
+                        <input type="hidden" id="selected-amount" name="selected-amount">
+
+                        <button type="submit" id="pay-now-button">Pay Now</button>
+                    </form>
+                </div>
+            </div>
+            <button id="loadChart" class="cta-btn" style="margin-bottom: 2.5em;">Explore our success: View our signup chart</button>
+        </div>
+    </div>
+    </div>
+
+    <div id="row-count"></div>
+    <div id="chartContainer"></div>
+    
+    <script src="/static/assets/scripts/chart_insert.js"></script>
+    <script src="/static/assets/scripts/signup_form.js"></script>
+    <script src="/static/assets/scripts/footer.js"></script>
+    <!--
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+-->
+</body>
+</html>
+                                              #app.py
+# if port 5000 in use already, try: export [FLASK_RUN_PORT=8080] before [flask run]
+# ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+# ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+# ~*~*~     ISM6225 - Final Project      *~*
+# ~*~*~             Group 12             *~*
+# ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+# ~* Joe Arul Susai Prakash  *~*~*~*~*~*~*~*
+# ~* Divyanshi Singh         *~*~*~*~*~*~*~*
+# ~* Kevin Hitt              *~*~*~*~*~*~*~*
+# ~* Sai Charan Dasari       *~*~*~*~*~*~*~*
+# ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+from flask import Flask, render_template, request, jsonify
+import csv
+import sqlite3
+import datetime
+
+app = Flask(__name__)
+
+# ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+# ~*~*~*~*~        PAGES       *~*~*~*~*~*~*
+# ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+# Flask route to render homepage
+@app.route("/")
+def home():
+    return render_template('index.html')
+
+# Flask route to render About Us page
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+# Flask route to render Product Features page
+@app.route("/features")
+def features():
+    return render_template('features.html')
+
+# Flask route to render Signup Page
+@app.route('/signup')
+def signup():
+    return render_template('signup.html')
+
+
+# ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+# ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+# ~*~*~*~*~     ENDPOINTS      *~*~*~*~*~*~*
+# ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+# ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+# Flask route to handle Signup form submissions
+@app.route('/submit-form', methods=['POST'])
+def submit_form():
+    fname = request.form['first-name']
+    lname = request.form['last-name']
+    email = request.form['email']
+    date = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+ # Store the form data in the database
+    with sqlite3.connect('database.db') as conn:
+        c = conn.cursor()
+        c.execute('''
+            CREATE TABLE IF NOT EXISTS signups (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                fname TEXT,
+                lname TEXT,
+                email TEXT, 
+                date TEXT
+            )
+        ''')
+        c.execute('INSERT INTO signups (fname, lname, email, date) VALUES (?, ?, ?, ?)',
+                  (fname, lname, email, date))
+        conn.commit()
+    conn.close()
+
+    return 'Success!'
+
+
+# Flask route to handle Donation form payments
+@app.route('/submit-donation', methods=['POST'])
+def submit_donation():
+    fname = request.form['first-name']
+    lname = request.form['last-name']
+    email = request.form['donation-email']
+    if 'custom' in request.form['selected-amount']:
+        payment = request.form['amount']
+    else:
+        payment = request.form['selected-amount']
+
+    date = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+ # Store the payment data in the database
+    with sqlite3.connect('database.db') as conn:
+        c = conn.cursor()
+        c.execute('''
+            CREATE TABLE IF NOT EXISTS donations (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                fname TEXT,
+                lname TEXT,
+                email TEXT,
+                payment INT, 
+                date TEXT
+            )
+        ''')
+        c.execute('INSERT INTO donations (fname, lname, email, payment, date) VALUES (?, ?, ?, ?, ?)',
+                  (fname, lname, email, payment, date))
+        conn.commit()
+    conn.close()
+
+    return 'Thank you for your support!'
+
+
+# Flask route to provide SQLite data to Chart.js when rendered
+@app.route('/get-data')
+def get_data():
+
+    # Connect to the database
+    conn = sqlite3.connect('database.db')
+    c = conn.cursor()
+    # Fetch data from the signups table
+    c.execute('''SELECT id, date FROM signups ORDER BY date ASC''')
+    rows = c.fetchall()
+
+    # Fetch the count of rows in the table
+    c.execute('''SELECT COUNT(*) FROM signups''')
+    row_count = c.fetchone()[0]
+
+    # Fetch the average number of signups in a given month
+    c.execute("SELECT COUNT(*) / (SELECT ((julianday(MAX(date)) - julianday(MIN(date))) / 30) FROM signups) AS avg_signups_per_month FROM signups")
+    avg_signups_per_month = c.fetchone()[0]
+    avg_signups_per_month = round(avg_signups_per_month)
+
+    c.close()
+
+    return jsonify(rows=rows, count=row_count, avgmonth=avg_signups_per_month)
+
+
+# ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+# ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+# ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+# ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+# ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+          
+                                            #chart.html
+
+<canvas id="myChart" class="chart-box"></canvas>                                            
