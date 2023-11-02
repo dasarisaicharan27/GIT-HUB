@@ -1,0 +1,90 @@
+#Recurrent Neural networks using Pytorch
+#Data Source Link-  https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostics
+#Importing libraries
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import confusion_matrix, accuracy_score
+import torch
+import torch.nn as nn
+import torch.optim as optim
+
+# Load the Breast Cancer dataset
+data = pd.read_csv("/content/data.csv")
+
+# Data preprocessing
+data = data.drop(['id'], axis=1)
+data['diagnosis'] = data['diagnosis'].map({'M': 1, 'B': 0}) # M-Maligant(Having cancer) and B-Benign(Not having cancer)
+
+# Split data into features (X) and labels (y)
+X = data.drop('diagnosis', axis=1)
+y = data['diagnosis']
+
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42) #80%- Training and 20%-Testing
+
+# Feature scaling
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+
+# Convert data to PyTorch tensors
+X_train = torch.FloatTensor(X_train)
+y_train = torch.FloatTensor(y_train.values).view(-1, 1)   # Reshape to [-1, 1] i.e model can have 1 column but can have as many no of rows it can
+X_test = torch.FloatTensor(X_test)
+y_test = y_test.values  # No need to convert y_test to a tensor
+
+# Define the RNN model
+class RNN(nn.Module):
+    def __init__(self, input_size, hidden_size, num_layers, num_classes):
+        super(RNN, self).__init__()
+        self.hidden_size = hidden_size
+        self.num_layers = num_layers
+        self.rnn = nn.RNN(input_size, hidden_size, num_layers, batch_first=True)
+        self.fc = nn.Linear(hidden_size, num_classes)
+
+    def forward(self, x):
+        h0 = torch.zeros(self.num_layers, x.size(0), self.hidden_size).to(x.device)
+        out, _ = self.rnn(x, h0)
+        out = self.fc(out[:, -1, :])
+        return out
+
+# Set the input size, hidden size, number of layers, and number of classes
+input_size = X_train.shape[1]
+hidden_size = 128  # You can adjust this value
+num_layers = 2
+num_classes = 1  # 1 output neuron for binary classification
+
+# Create an instance of the RNN model
+rnn_model = RNN(input_size, hidden_size, num_layers, num_classes)
+
+# Define the loss function and optimizer for RNN
+criterion = nn.BCEWithLogitsLoss()  # Sigmoid is included in the loss
+optimizer = optim.Adam(rnn_model.parameters(), lr=0.001)
+
+# Training loop for RNN
+epochs = 100
+for epoch in range(epochs):
+    optimizer.zero_grad()
+    outputs = rnn_model(X_train.unsqueeze(1))  # Adding a time step dimension
+    loss = criterion(outputs, y_train)
+    loss.backward()
+    optimizer.step()
+
+# Evaluation for RNN
+rnn_model.eval()
+with torch.no_grad():
+    rnn_outputs = rnn_model(X_test.unsqueeze(1))  # This operation is used to add a new dimension (of size 1) to the tensor.
+    rnn_pred = (torch.sigmoid(rnn_outputs) > 0.5).float() # >0.5 are considered 1 and <0.5 are considered as 0
+
+# Calculate the confusion matrix
+confusion = confusion_matrix(y_test, rnn_pred.numpy())
+print("Confusion Matrix:")
+print(confusion)
+
+# Calculate accuracy
+accuracy = accuracy_score(y_test, rnn_pred.numpy())
+print(f"Accuracy: {accuracy * 100:.2f}%")
+
+
