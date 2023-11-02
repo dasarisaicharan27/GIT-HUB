@@ -9,32 +9,25 @@ from sklearn.metrics import confusion_matrix, accuracy_score
 import torch
 import torch.nn as nn
 import torch.optim as optim
-
 # Load the Breast Cancer dataset
 data = pd.read_csv("/content/data.csv")
-
 # Data preprocessing
 data = data.drop(['id'], axis=1)
 data['diagnosis'] = data['diagnosis'].map({'M': 1, 'B': 0}) # M-Maligant(Having cancer) and B-Benign(Not having cancer)
-
 # Split data into features (X) and labels (y)
 X = data.drop('diagnosis', axis=1)
 y = data['diagnosis']
-
 # Split the data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42) #80%- Training and 20%-Testing
-
 # Feature scaling
 scaler = StandardScaler()
 X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
-
 # Convert data to PyTorch tensors
 X_train = torch.FloatTensor(X_train)
 y_train = torch.FloatTensor(y_train.values).view(-1, 1)   # Reshape to [-1, 1] i.e model can have 1 column but can have as many no of rows it can
 X_test = torch.FloatTensor(X_test)
 y_test = y_test.values  # No need to convert y_test to a tensor
-
 # Define the RNN model
 class RNN(nn.Module):
     def __init__(self, input_size, hidden_size, num_layers, num_classes):
@@ -49,20 +42,16 @@ class RNN(nn.Module):
         out, _ = self.rnn(x, h0)
         out = self.fc(out[:, -1, :])
         return out
-
 # Set the input size, hidden size, number of layers, and number of classes
 input_size = X_train.shape[1]
 hidden_size = 128  # You can adjust this value
 num_layers = 2
 num_classes = 1  # 1 output neuron for binary classification
-
 # Create an instance of the RNN model
 rnn_model = RNN(input_size, hidden_size, num_layers, num_classes)
-
 # Define the loss function and optimizer for RNN
 criterion = nn.BCEWithLogitsLoss()  # Sigmoid is included in the loss
 optimizer = optim.Adam(rnn_model.parameters(), lr=0.001)
-
 # Training loop for RNN
 epochs = 100
 for epoch in range(epochs):
@@ -71,20 +60,153 @@ for epoch in range(epochs):
     loss = criterion(outputs, y_train)
     loss.backward()
     optimizer.step()
-
 # Evaluation for RNN
 rnn_model.eval()
 with torch.no_grad():
     rnn_outputs = rnn_model(X_test.unsqueeze(1))  # This operation is used to add a new dimension (of size 1) to the tensor.
     rnn_pred = (torch.sigmoid(rnn_outputs) > 0.5).float() # >0.5 are considered 1 and <0.5 are considered as 0
-
 # Calculate the confusion matrix
 confusion = confusion_matrix(y_test, rnn_pred.numpy())
 print("Confusion Matrix:")
 print(confusion)
-
 # Calculate accuracy
 accuracy = accuracy_score(y_test, rnn_pred.numpy())
 print(f"Accuracy: {accuracy * 100:.2f}%")
+
+#Feed Forward Neural networks using Pytorch
+#Data Source Link-  https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic
+#Importing libraries
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import confusion_matrix, accuracy_score
+import torch
+import torch.nn as nn
+import torch.optim as optim
+# Load the Breast Cancer dataset
+data = pd.read_csv("/content/data.csv")
+# Data preprocessing
+data = data.drop(['id'], axis=1)
+data['diagnosis'] = data['diagnosis'].map({'M': 1, 'B': 0}) # M-Maligant(Having cancer) and B-Benign(Not having cancer)
+# Split data into features (X) and labels (y)
+X = data.drop('diagnosis', axis=1)
+y = data['diagnosis']
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42) #80%- Training and 20%-Testing
+# Feature scaling
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+# Convert data to PyTorch tensors
+X_train = torch.FloatTensor(X_train)
+y_train = torch.FloatTensor(y_train.values).view(-1, 1)  # Reshape to [-1, 1] i.e model can have 1 column but can have as many no of rows it can.
+X_test = torch.FloatTensor(X_test)
+y_test = y_test.values  # No need to convert y_test to a tensor
+# Define the FNN model
+class FNN(nn.Module):
+    def __init__(self, input_size, hidden_size, num_classes):
+        super(FNN, self).__init__()
+        self.fc1 = nn.Linear(input_size, hidden_size)
+        self.relu = nn.ReLU() #Relu activation function
+        self.fc2 = nn.Linear(hidden_size, num_classes)
+     def forward(self, x):
+        x = self.fc1(x)
+        x = self.relu(x)
+        x = self.fc2(x)
+        return x
+# Set the input size, hidden size, and number of classes
+input_size = X_train.shape[1]
+hidden_size = 128
+num_classes = 1  # 1 output neuron for binary classification
+# Create an instance of the FNN model
+fnn_model = FNN(input_size, hidden_size, num_classes)
+# Define the loss function and optimizer for FNN
+criterion = nn.BCEWithLogitsLoss()  # Sigmoid is included in the loss
+optimizer = optim.Adam(fnn_model.parameters(), lr=0.001)
+# Training loop for FNN
+epochs = 100
+for epoch in range(epochs):
+    optimizer.zero_grad()
+    outputs = fnn_model(X_train)
+    loss = criterion(outputs, y_train) #compares machine o/p to actual target values
+    loss.backward()
+    optimizer.step()
+# Evaluation for FNN
+fnn_model.eval() #sets FNN into evaluation mode
+with torch.no_grad():
+    fnn_outputs = fnn_model(X_test) # pass X_test to model and contains o/p before applying activation function
+    fnn_pred = (torch.sigmoid(fnn_outputs) > 0.5).float() # >0.5 are considered 1 and <0.5 are considered as 0
+# Calculate the confusion matrix
+confusion = confusion_matrix(y_test, fnn_pred.numpy())
+print("Confusion Matrix:")
+print(confusion)
+# Calculate accuracy
+accuracy = accuracy_score(y_test, fnn_pred)
+print(f"Accuracy: {accuracy * 100:.2f}%")
+
+#Convolutional neural networks using keras
+#Data Source Link-  https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic
+#Importing libraries
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import confusion_matrix, accuracy_score
+from keras.models import Sequential
+from keras.layers import Conv1D, MaxPooling1D, Flatten, Dense
+# Load the Breast Cancer dataset
+data = pd.read_csv("/content/data.csv")
+# Data preprocessing
+data = data.drop(['id'], axis=1)
+data['diagnosis'] = data['diagnosis'].map({'M': 1, 'B': 0}) # M-Maligant(Having cancer) and B-Benign(Not having cancer)
+# Split data into features (X) and labels (y)
+X = data.drop('diagnosis', axis=1)
+y = data['diagnosis']
+
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42) #80%- Training and 20%-Testing
+
+# Feature scaling
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+
+# Reshape the data for Conv1D (input shape)
+X_train = X_train.reshape(X_train.shape[0], X_train.shape[1], 1)
+X_test = X_test.reshape(X_test.shape[0], X_test.shape[1], 1)
+
+# Create a Sequential model
+model = Sequential()
+
+# Add convolutional layers
+model.add(Conv1D(32, kernel_size=3, activation='relu', input_shape=(X_train.shape[1], 1)))
+model.add(MaxPooling1D(pool_size=2))
+model.add(Flatten())
+
+# Add a dense layer for classification
+model.add(Dense(64, activation='relu'))
+model.add(Dense(1, activation='sigmoid'))
+
+# Compile the model
+model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+
+# Train the model
+model.fit(X_train, y_train, epochs=100, batch_size=32, verbose=1)
+
+# Evaluate the model
+y_pred = model.predict(X_test)
+y_pred = (y_pred > 0.5).astype(int) # >0.5 are considered 1 and <0.5 are considered as 0
+
+# Calculate the confusion matrix
+confusion = confusion_matrix(y_test, y_pred)
+print("Confusion Matrix:")
+print(confusion)
+
+# Calculate accuracy
+accuracy = accuracy_score(y_test, y_pred)
+print(f"Accuracy: {accuracy * 100:.2f}%")
+
+
 
 
